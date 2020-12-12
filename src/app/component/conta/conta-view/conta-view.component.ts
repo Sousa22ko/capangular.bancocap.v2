@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/model/cliente.model';
 import { Conta } from 'src/app/model/conta.model';
+import { currencyFormatter } from 'src/app/util/currencyFormatter';
 
 @Component({
   selector: 'app-conta-view',
@@ -8,12 +8,12 @@ import { Conta } from 'src/app/model/conta.model';
   styleUrls: ['../../../app.component.css']
 })
 export class ContaViewComponent implements OnInit {
-  conta:Conta = {cliente: "Kalila",hash:"1234463131",saldo: 2516};
+  conta:Conta = {cliente: "Kalila", hash:"1234463131", saldo: 2516};
   
   colunas = [
     { field: 'cliente' },
     { field: 'hash' },
-    { field: 'saldo', valueFormatter: params => this.currencyFormatter(params.data.saldo, 'R$')  },
+    { field: 'saldo', valueFormatter: params => currencyFormatter(params.data.saldo, 'R$')  },
   ];
 
   linhas = [
@@ -25,12 +25,6 @@ export class ContaViewComponent implements OnInit {
   ];
 
   constructor() { }
-
-  currencyFormatter(saldo, sign) {
-    var decimal = saldo.toFixed(2);
-    var formatado = decimal.replace(/\B(?=(\d{3})+(?!\d))/g, '.').replace('.', ',');
-    return sign + ' ' +formatado;
-  }
 
   ngOnInit(): void {
   }

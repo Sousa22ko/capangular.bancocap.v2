@@ -19,10 +19,27 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { AgGridModule } from 'ag-grid-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DepositoComponent } from './component/deposito/deposito.component';
+import { NgxCurrencyModule } from 'ngx-currency';
+import { SaqueComponent } from './component/saque/saque.component';
+import { TransferenciaComponent } from './component/transferencia/transferencia.component';
+import { dateFormat } from './util/dateFormat';
+import { ExtratoComponent } from './component/extrato/extrato.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
+export const customCurrencyMaskConfig = {
+  align: "left",
+  allowNegative: true,
+  allowZero: true,
+  decimal: ",",
+  precision: 2,
+  prefix: "R$ ",
+  suffix: "",
+  thousands: ".",
+  nullable: true
+}
 
 @NgModule({
   declarations: [
@@ -35,7 +52,11 @@ const maskConfig: Partial<IConfig> = {
     CPFPipe,
     ClienteViewComponent,
     ContaViewComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    DepositoComponent,
+    SaqueComponent,
+    TransferenciaComponent,
+    ExtratoComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +65,7 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
     AgGridModule.withComponents([]),
     BrowserAnimationsModule,
-   /*  MatToolbarModule,
-    MatButtonModule,
-    MatDatepickerModule */
-    
+    NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+<div style= "width: 500px; margin: 0 auto; padding-top:30px;">
+    <h1>Transferência de valor</h1>
+    <label for="dataHora" >Data e Hora</label>
+    <input type="text" [(ngModel)]="dataHora" name="dataHora" mask="00/00/0000 00:00" required><br> 
+  
+    <label for="valor" >Valor</label>
+    <input  type="text"  [(ngModel)]="valor" name="valor" currencyMask required><br> 
+    <!-- [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" -->
+
+    <label for="hashOrigem" >Hash conta origem</label>
+    <input  type="text"  [(ngModel)]="hashOrigem" name="hashOrigem" required><br> 
+
+    <label for="hashDestino" >Hash conta destino</label>
+    <input  type="text"  [(ngModel)]="hashDestino" name="hashDestino" required><br> 
+  
+    <p [hidden] = "!error" style="color: red;">
+      {{ errorDesc }}   
+    </p> 
+    
+    <button class="btn waves-effect waves-light" (click)="onDeposito()">Enviar </button> 
+    <br>
+    
+  </div>  

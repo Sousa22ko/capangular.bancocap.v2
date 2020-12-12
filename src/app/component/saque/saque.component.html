@@ -1,0 +1,20 @@
+<div style= "width: 500px; margin: 0 auto; padding-top:30px;">
+    <h1>Sacar valor</h1>
+    <label for="dataHora" >Data e Hora</label>
+    <input type="text" [(ngModel)]="dataHora" name="dataHora" mask="00/00/0000 00:00" required><br> 
+  
+    <label for="valor" >Valor</label>
+    <input  type="text"  [(ngModel)]="valor" name="valor" currencyMask required><br> 
+    <!-- [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" -->
+
+    <label for="hash" >Hash</label>
+    <input  type="text"  [(ngModel)]="hash" name="Hash" required><br> 
+  
+    <p [hidden] = "!error" style="color: red;">
+      {{ errorDesc }}   
+    </p> 
+    
+    <button class="btn waves-effect waves-light" (click)="onDeposito()">Enviar </button> 
+    <br>
+    
+  </div>  
