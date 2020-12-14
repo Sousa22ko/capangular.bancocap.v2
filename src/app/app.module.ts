@@ -24,6 +24,7 @@ import { NgxCurrencyModule } from 'ngx-currency';
 import { SaqueComponent } from './component/saque/saque.component';
 import { TransferenciaComponent } from './component/transferencia/transferencia.component';
 import { ExtratoComponent } from './component/extrato/extrato.component';
+import { ButtonRendererComponent } from './button-renderer.component';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -55,14 +56,16 @@ export const customCurrencyMaskConfig = {
     DepositoComponent,
     SaqueComponent,
     TransferenciaComponent,
-    ExtratoComponent
+    ExtratoComponent,
+    ButtonRendererComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxMaskModule.forRoot(maskConfig),
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([ButtonRendererComponent]),
     BrowserAnimationsModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
