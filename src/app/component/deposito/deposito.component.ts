@@ -5,7 +5,7 @@ import { dateFormat } from 'src/app/util/dateFormat';
 @Component({
   selector: 'app-deposito',
   templateUrl: './deposito.component.html',
-  styleUrls: ['./deposito.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class DepositoComponent implements OnInit {
 

@@ -5,7 +5,7 @@ import { tipoOperacao } from "../../model/extrato.model"
 @Component({
   selector: 'app-extrato',
   templateUrl: './extrato.component.html',
-  styleUrls: ['./extrato.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class ExtratoComponent implements OnInit {
   

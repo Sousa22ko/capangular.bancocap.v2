@@ -23,7 +23,6 @@ import { DepositoComponent } from './component/deposito/deposito.component';
 import { NgxCurrencyModule } from 'ngx-currency';
 import { SaqueComponent } from './component/saque/saque.component';
 import { TransferenciaComponent } from './component/transferencia/transferencia.component';
-import { dateFormat } from './util/dateFormat';
 import { ExtratoComponent } from './component/extrato/extrato.component';
 
 const maskConfig: Partial<IConfig> = {

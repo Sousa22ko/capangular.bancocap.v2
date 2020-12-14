@@ -5,7 +5,7 @@ import { dateFormat } from 'src/app/util/dateFormat';
 @Component({
   selector: 'app-transferencia',
   templateUrl: './transferencia.component.html',
-  styleUrls: ['./transferencia.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class TransferenciaComponent implements OnInit {
 

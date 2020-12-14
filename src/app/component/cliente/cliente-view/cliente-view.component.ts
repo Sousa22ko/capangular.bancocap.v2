@@ -14,11 +14,11 @@ export class ClienteViewComponent implements OnInit {
   ];
 
   linhas = [
-      { nome: 'Arthur', cpf: '001' },
-      { nome: 'Daniel', cpf: '002' },
-      { nome: 'Kalila', cpf: '003'},
-      { nome: 'Nilson', cpf: '004'},
-      { nome: 'Reinaldo', cpf: '005'},
+      { nome: 'Arthur', cpf: '001.222.333-55' },
+      { nome: 'Daniel', cpf: '002.999.888-77' },
+      { nome: 'Kalila', cpf: '003.777.666-55'},
+      { nome: 'Nilson', cpf: '004.444.333-44'},
+      { nome: 'Reinaldo', cpf: '005.999.000-11'},
   ];
 
   constructor() { }

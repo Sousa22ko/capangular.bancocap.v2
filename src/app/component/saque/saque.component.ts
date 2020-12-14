@@ -5,7 +5,7 @@ import { dateFormat } from 'src/app/util/dateFormat';
 @Component({
   selector: 'app-saque',
   templateUrl: './saque.component.html',
-  styleUrls: ['./saque.component.css']
+  styleUrls: ['../../app.component.css']
 })
 export class SaqueComponent implements OnInit {
 
