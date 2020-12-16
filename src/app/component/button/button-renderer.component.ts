@@ -5,13 +5,13 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 
 @Component({
   selector: 'app-button-renderer',
-  styleUrls: ['./app.component.css'],
+  styleUrls: ['../../app.component.css'],
   template: `
     <button type="button" class="btn waves-effect waves-light" (click)="onClick($event)">{{label}}</button>
     `
 })
 
-export class ButtonRendererComponent implements ICellRendererAngularComp {
+export class ButtonComponent implements ICellRendererAngularComp {
 
   params;
   label: string;

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Cliente } from 'src/app/model/cliente.model';
+import { ListClientesService } from 'src/app/service/list-clientes.service';
 
 @Component({
   selector: 'app-cliente',
@@ -13,7 +14,7 @@ export class ClienteComponent implements OnInit {
   error:boolean = false;
   errorDesc:string = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private service:ListClientesService) { }
 
   onCadastrar(){
     console.log(this.cliente.cpf);
@@ -30,6 +31,7 @@ export class ClienteComponent implements OnInit {
       this.errorDesc = "Insira um CPF válido"
     } else {
       this.error = false;
+      this.service.save(this.cliente)
       this.router.navigate(['/perfil']);
     }
   }

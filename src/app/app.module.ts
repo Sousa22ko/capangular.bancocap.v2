@@ -24,7 +24,9 @@ import { NgxCurrencyModule } from 'ngx-currency';
 import { SaqueComponent } from './component/saque/saque.component';
 import { TransferenciaComponent } from './component/transferencia/transferencia.component';
 import { ExtratoComponent } from './component/extrato/extrato.component';
-import { ButtonRendererComponent } from './button-renderer.component';
+import { ButtonComponent } from './component/button/button-renderer.component';
+import { maskConfig2, API_CONFIG_URL} from './token';
+import { ListClientesService } from './service/list-clientes.service';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -57,7 +59,7 @@ export const customCurrencyMaskConfig = {
     SaqueComponent,
     TransferenciaComponent,
     ExtratoComponent,
-    ButtonRendererComponent
+    ButtonComponent
 
   ],
   imports: [
@@ -65,11 +67,14 @@ export const customCurrencyMaskConfig = {
     AppRoutingModule,
     FormsModule,
     NgxMaskModule.forRoot(maskConfig),
-    AgGridModule.withComponents([ButtonRendererComponent]),
+    AgGridModule.withComponents([ButtonComponent]),
     BrowserAnimationsModule,
     NgxCurrencyModule.forRoot(customCurrencyMaskConfig)
   ],
-  providers: [],
+  providers: [
+    { provide: 'API_URL', useValue: API_CONFIG_URL },
+    ListClientesService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
