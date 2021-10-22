@@ -17,7 +17,7 @@ export class ClienteComponent implements OnInit {
 
   constructor(private router: Router, private service: ListClientesService) { }
 
-  onCadastrar(){
+  onCadastrar() {
     const valido = validateCPF(this.cliente.cpf);
 
     if (!this.cliente.nome) {
@@ -29,6 +29,9 @@ export class ClienteComponent implements OnInit {
     } else if (!valido) {
       this.error = true;
       this.errorDesc = 'Insira um CPF válido';
+    } else if (this.service.exist(this.cliente.cpf)) {
+      this.error = true;
+      this.errorDesc = 'CPF informado já cadastrado. Insira um outro CPF válido';
     } else {
       this.error = false;
       this.service.save(this.cliente);
