@@ -23,12 +23,16 @@ export class ListClientesService {
     return this.clientes;
   }
 
-  save(novo: Cliente){
+  save(novo: Cliente) {
     this.clientes.push(novo);
   }
 
-  delete(cpf: string){
+  delete(cpf: string) {
     this.clientes.filter(clt => clt.cpf.localeCompare(cpf));
+  }
+
+  exist(cpf: string) {
+    return this.clientes.find(cliente => cliente.cpf === cpf) ? true : false;
   }
 
 }
