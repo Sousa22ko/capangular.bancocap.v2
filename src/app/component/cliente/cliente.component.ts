@@ -10,65 +10,65 @@ import { ListClientesService } from 'src/app/service/list-clientes.service';
   styleUrls: ['../../app.component.css']
 })
 export class ClienteComponent implements OnInit {
-  cliente:Cliente = {};
-  error:boolean = false;
-  errorDesc:string = "";
+  cliente: Cliente = {};
+  error = false;
+  errorDesc = '';
 
-  constructor(private router: Router, private service:ListClientesService) { }
+  constructor(private router: Router, private service: ListClientesService) { }
 
   onCadastrar(){
     console.log(this.cliente.cpf);
-    var valido = this.validarCpf(this.cliente.cpf);
+    const valido = this.validarCpf(this.cliente.cpf);
     console.log(valido);
     if (!this.cliente.nome) {
-      this.error = true;      
-      this.errorDesc = "Preencha o campo nome"
+      this.error = true;
+      this.errorDesc = 'Preencha o campo nome';
     } else if (!this.cliente.cpf) {
-      this.error = true;      
-      this.errorDesc = "Insira o CPF"
+      this.error = true;
+      this.errorDesc = 'Insira o CPF';
     } else if (!valido) {
-      this.error = true;      
-      this.errorDesc = "Insira um CPF válido"
+      this.error = true;
+      this.errorDesc = 'Insira um CPF válido';
     } else {
       this.error = false;
-      this.service.save(this.cliente)
+      this.service.save(this.cliente);
       this.router.navigate(['/perfil']);
     }
   }
-   
-  
+
+
   validarCpf(cpf: string) {
-    if (cpf == null) {
+    if (cpf === null) {
       return false;
   }
-  if (cpf.length != 11) {
+  if (cpf.length !== 11) {
       return false;
   }
-  if ((cpf == '00000000000') || 
-      (cpf == '11111111111') || 
-      (cpf == '22222222222') || 
-      (cpf == '33333333333') || 
-      (cpf == '44444444444') || 
-      (cpf == '55555555555') || 
-      (cpf == '66666666666') || 
-      (cpf == '77777777777') || 
-      (cpf == '88888888888') || 
-      (cpf == '99999999999')) {
+  if ((cpf === '00000000000') ||
+      (cpf === '11111111111') ||
+      (cpf === '22222222222') ||
+      (cpf === '33333333333') ||
+      (cpf === '44444444444') ||
+      (cpf === '55555555555') ||
+      (cpf === '66666666666') ||
+      (cpf === '77777777777') ||
+      (cpf === '88888888888') ||
+      (cpf === '99999999999')) {
       return false;
   }
-  let numero: number = 0;
-  let caracter: string = '';
-  let numeros: string = '0123456789';
-  let j: number = 10;
-  let somatorio: number = 0;
-  let resto: number = 0;
-  let digito1: number = 0;
-  let digito2: number = 0;
-  let cpfAux: string = '';
+  let numero = 0;
+  let caracter = '';
+  const numeros = '0123456789';
+  let j = 10;
+  let somatorio = 0;
+  let resto = 0;
+  let digito1 = 0;
+  let digito2 = 0;
+  let cpfAux = '';
   cpfAux = cpf.substring(0, 9);
-  for (let i: number = 0; i < 9; i++) {
+  for (let i = 0; i < 9; i++) {
       caracter = cpfAux.charAt(i);
-      if (numeros.search(caracter) == -1) {
+      if (numeros.search(caracter) === -1) {
           return false;
       }
       numero = Number(caracter);
@@ -83,7 +83,7 @@ export class ClienteComponent implements OnInit {
   j = 11;
   somatorio = 0;
   cpfAux = cpfAux + digito1;
-  for (let i: number = 0; i < 10; i++) {
+  for (let i = 0; i < 10; i++) {
       caracter = cpfAux.charAt(i);
       numero = Number(caracter);
       somatorio = somatorio + (numero * j);
@@ -95,14 +95,14 @@ export class ClienteComponent implements OnInit {
       digito2 = 0;
   }
   cpfAux = cpfAux + digito2;
-  if (cpf != cpfAux) {
+  if (cpf !== cpfAux) {
       return false;
   }
   else {
       return true;
   }
 }
-    
+
   ngOnInit(): void {
   }
 

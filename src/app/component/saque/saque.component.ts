@@ -10,8 +10,8 @@ import { dateFormat } from 'src/app/util/dateFormat';
 export class SaqueComponent implements OnInit {
 
   dataHora: string = new Intl.DateTimeFormat('br', dateFormat).format(new Date());
-  valor:number = 0;
-  hash:string;
+  valor = 0;
+  hash: string;
 
   error: boolean;
   errorDesc: string;
@@ -24,18 +24,18 @@ export class SaqueComponent implements OnInit {
   onDeposito(){
     if(this.dataHora.length < 16){
       this.error = true;
-      this.errorDesc = "Data e hora invalida";
+      this.errorDesc = 'Data e hora invalida';
     }
     else if(this.valor <= 0){
       this.error = true;
-      this.errorDesc = "Valor insufficiente";
+      this.errorDesc = 'Valor insufficiente';
     }
-    else if(!this.hash || (this.hash && this.hash.length == 0)){
+    else if(!this.hash || (this.hash && this.hash.length === 0)){
       this.error = true;
-      this.errorDesc = "Identifique a conta de destino";
+      this.errorDesc = 'Identifique a conta de destino';
     }
     else{
-      this.router.navigate(["/home"]);
+      this.router.navigate(['/home']);
     }
   }
 }
