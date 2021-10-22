@@ -15,7 +15,7 @@ export class ListClientesService {
       { nome: 'Kalila', cpf: '738.586.970-01' },
       { nome: 'Nilson', cpf: '171.590.100-27' },
       { nome: 'Reinaldo', cpf: '866.676.730-89' },
-    ]
+    ];
 
   }
 
@@ -27,8 +27,8 @@ export class ListClientesService {
     this.clientes.push(novo);
   }
 
-  delete(cpf:string){
-    this.clientes.filter(clt => {return clt.cpf.localeCompare(cpf)});
+  delete(cpf: string){
+    this.clientes.filter(clt => clt.cpf.localeCompare(cpf));
   }
 
 }

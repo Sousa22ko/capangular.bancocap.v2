@@ -8,8 +8,8 @@ import { currencyFormatter } from 'src/app/util/currencyFormatter';
   styleUrls: ['../../../app.component.css']
 })
 export class ContaViewComponent implements OnInit {
-  conta:Conta = {cliente: "Kalila", hash:"1234463131", saldo: 2516};
-  
+  conta: Conta = {cliente: 'Kalila', hash:'1234463131', saldo: 2516};
+
   colunas = [
     { field: 'cliente' },
     { field: 'hash' },

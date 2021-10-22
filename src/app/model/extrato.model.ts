@@ -1,11 +1,11 @@
-export interface extrato {
-    dataHora: Date,
-    valor: number
-    tipoOperacao: tipoOperacao
+export interface Extrato {
+    dataHora: Date;
+    valor: number;
+    tipoOperacao: TipoOperacao;
 }
 
-export enum tipoOperacao {
-    saque = "Saque", 
-    deposito = "Deposito",
-    transferencia = "Transferência"
+export enum TipoOperacao {
+    saque = 'Saque',
+    deposito = 'Deposito',
+    transferencia = 'Transferência'
 }

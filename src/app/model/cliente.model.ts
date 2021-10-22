@@ -1,4 +1,4 @@
 export interface Cliente{
-  nome?: string,  
-  cpf?: string
+  nome?: string;
+  cpf?: string;
 }

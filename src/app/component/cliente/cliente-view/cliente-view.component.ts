@@ -10,6 +10,9 @@ import { inject } from '@angular/core/testing';
   styleUrls: ['../../../app.component.css', './cliente-view.component.css']
 })
 export class ClienteViewComponent implements OnInit {
+
+  @ViewChild('agGrid') agGrid: AgGridAngular;
+
   frameworkComponents: any;
   api: any;
   colunas = [
@@ -48,12 +51,10 @@ export class ClienteViewComponent implements OnInit {
     console.log(this.url);
     this.frameworkComponents = {
       buttonRenderer: ButtonComponent,
-    }
+    };
 
     this.linhas = clienteListService.findAll();
   }
-
-  @ViewChild('agGrid') agGrid: AgGridAngular;
 
   onEditButtonClick(params) {
     this.api.startEditingCell({
@@ -67,7 +68,7 @@ export class ClienteViewComponent implements OnInit {
   }
 
   onDeleteButtonClick(params) {
-    this.clienteListService.delete(params.data.cpf)
+    this.clienteListService.delete(params.data.cpf);
     this.api.updateRowData({ remove: [params.data] });
   }
 

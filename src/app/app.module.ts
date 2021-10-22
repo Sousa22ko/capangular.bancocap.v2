@@ -32,16 +32,16 @@ const maskConfig: Partial<IConfig> = {
   validation: false,
 };
 export const customCurrencyMaskConfig = {
-  align: "left",
+  align: 'left',
   allowNegative: true,
   allowZero: true,
-  decimal: ",",
+  decimal: ',',
   precision: 2,
-  prefix: "R$ ",
-  suffix: "",
-  thousands: ".",
+  prefix: 'R$ ',
+  suffix: '',
+  thousands: '.',
   nullable: true
-}
+};
 
 @NgModule({
   declarations: [

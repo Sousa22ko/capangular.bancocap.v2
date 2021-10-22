@@ -10,9 +10,9 @@ import { dateFormat } from 'src/app/util/dateFormat';
 export class TransferenciaComponent implements OnInit {
 
   dataHora: string = new Intl.DateTimeFormat('br', dateFormat).format(new Date());
-  valor:number = 0;
-  hashOrigem:string;
-  hashDestino:string;
+  valor = 0;
+  hashOrigem: string;
+  hashDestino: string;
 
   error: boolean;
   errorDesc: string;
@@ -25,22 +25,22 @@ export class TransferenciaComponent implements OnInit {
   onDeposito(){
     if(this.dataHora.length < 16){
       this.error = true;
-      this.errorDesc = "Data e hora invalida";
+      this.errorDesc = 'Data e hora invalida';
     }
     else if(this.valor <= 0){
       this.error = true;
-      this.errorDesc = "Valor insufficiente";
+      this.errorDesc = 'Valor insufficiente';
     }
-    else if(!this.hashOrigem || (this.hashOrigem && this.hashOrigem.length == 0)){
+    else if(!this.hashOrigem || (this.hashOrigem && this.hashOrigem.length === 0)){
       this.error = true;
-      this.errorDesc = "Identifique a conta de origem";
+      this.errorDesc = 'Identifique a conta de origem';
     }
-    else if(!this.hashDestino || (this.hashDestino && this.hashDestino.length == 0)){
+    else if(!this.hashDestino || (this.hashDestino && this.hashDestino.length === 0)){
       this.error = true;
-      this.errorDesc = "Identifique a conta de destino";
+      this.errorDesc = 'Identifique a conta de destino';
     }
     else{
-      this.router.navigate(["/home"]);
+      this.router.navigate(['/home']);
     }
   }
 
